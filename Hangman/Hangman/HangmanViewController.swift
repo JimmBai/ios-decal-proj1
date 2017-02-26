@@ -58,6 +58,9 @@ class HangmanViewController: UIViewController {
                 defaultDispaly += "_ "
             }
         }
+        if phrase.characters.count > 12 {
+            guessDisplay.numberOfLines = phrase.characters.count / 12
+        }
         guessDisplay.text = defaultDispaly
         hangmanState.image = UIImage(named: "hangman1")
         incorrectGuess.text = "Incorrect Guesses: 0"
