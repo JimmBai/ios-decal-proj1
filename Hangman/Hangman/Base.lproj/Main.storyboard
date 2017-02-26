@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="33m-bG-32Y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="33m-bG-32Y">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,12 +21,91 @@
                     <view key="view" contentMode="scaleToFill" id="xKS-yl-l6T">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Pd-yV-Gah">
+                                <rect key="frame" x="151.5" y="556" width="72" height="51"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <state key="normal" title="Guess"/>
+                                <connections>
+                                    <action selector="guessButton:" destination="33m-bG-32Y" eventType="touchUpInside" id="uA8-Hv-RHC"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your guess." textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dze-fB-tbv">
+                                <rect key="frame" x="112" y="446" width="150" height="60"/>
+                                <color key="backgroundColor" red="0.78484389241723518" green="0.91907792375540875" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="6Vr-Rc-Bdq"/>
+                                    <constraint firstAttribute="height" constant="60" id="bOx-Og-J3o"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_ _ _ _ _ _" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mWh-Aw-aGL">
+                                <rect key="frame" x="16" y="322" width="343" height="23.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hangman1" translatesAutoresizingMaskIntoConstraints="NO" id="2P7-C9-hUg">
+                                <rect key="frame" x="21" y="20" width="333" height="262"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Incorrect Guesses: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qC6-lq-cZo">
+                                <rect key="frame" x="108" y="395.5" width="159" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qeJ-mz-nWW">
+                                <rect key="frame" x="0.0" y="627" width="375" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="GNb-yE-Xdd"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Start Over" id="RU3-tO-hha">
+                                        <connections>
+                                            <action selector="startOver:" destination="33m-bG-32Y" id="t2W-FS-w9U"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qeJ-mz-nWW" firstAttribute="centerX" secondItem="xKS-yl-l6T" secondAttribute="centerX" id="0Wq-7z-EQJ"/>
+                            <constraint firstItem="2P7-C9-hUg" firstAttribute="top" secondItem="fga-sG-nzY" secondAttribute="bottom" id="1DU-EP-pb9"/>
+                            <constraint firstItem="dze-fB-tbv" firstAttribute="top" secondItem="qC6-lq-cZo" secondAttribute="bottom" constant="30" id="7Us-aD-p9B"/>
+                            <constraint firstItem="qeJ-mz-nWW" firstAttribute="width" secondItem="xKS-yl-l6T" secondAttribute="width" id="9ji-Gn-uNN"/>
+                            <constraint firstItem="mWh-Aw-aGL" firstAttribute="centerY" secondItem="xKS-yl-l6T" secondAttribute="centerY" id="ADg-oi-hKg"/>
+                            <constraint firstItem="mWh-Aw-aGL" firstAttribute="top" secondItem="2P7-C9-hUg" secondAttribute="bottom" constant="40" id="FIU-p5-f9K"/>
+                            <constraint firstItem="Rkb-O3-rip" firstAttribute="top" secondItem="qeJ-mz-nWW" secondAttribute="bottom" id="GlN-Hq-TRg"/>
+                            <constraint firstItem="qC6-lq-cZo" firstAttribute="top" secondItem="mWh-Aw-aGL" secondAttribute="bottom" constant="50" id="Mx3-h5-ZOF"/>
+                            <constraint firstItem="mWh-Aw-aGL" firstAttribute="centerX" secondItem="xKS-yl-l6T" secondAttribute="centerX" id="N6O-LZ-noy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2P7-C9-hUg" secondAttribute="trailing" constant="5" id="Sgx-Fv-nCM"/>
+                            <constraint firstItem="qeJ-mz-nWW" firstAttribute="top" secondItem="9Pd-yV-Gah" secondAttribute="bottom" constant="20" id="UIT-fF-1uG"/>
+                            <constraint firstItem="9Pd-yV-Gah" firstAttribute="top" secondItem="dze-fB-tbv" secondAttribute="bottom" constant="50" id="WTh-1r-hC3"/>
+                            <constraint firstItem="2P7-C9-hUg" firstAttribute="leading" secondItem="xKS-yl-l6T" secondAttribute="leadingMargin" constant="5" id="XLB-Lk-Lhg"/>
+                            <constraint firstItem="qC6-lq-cZo" firstAttribute="centerX" secondItem="xKS-yl-l6T" secondAttribute="centerX" id="XqS-bm-UEl"/>
+                            <constraint firstItem="mWh-Aw-aGL" firstAttribute="leading" secondItem="xKS-yl-l6T" secondAttribute="leadingMargin" id="cvE-Hm-9R6"/>
+                            <constraint firstItem="9Pd-yV-Gah" firstAttribute="centerX" secondItem="xKS-yl-l6T" secondAttribute="centerX" id="eGL-8M-Djb"/>
+                            <constraint firstItem="dze-fB-tbv" firstAttribute="centerX" secondItem="xKS-yl-l6T" secondAttribute="centerX" id="fOs-8e-btd"/>
+                            <constraint firstItem="2P7-C9-hUg" firstAttribute="centerX" secondItem="xKS-yl-l6T" secondAttribute="centerX" id="oCw-Rk-SSt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mWh-Aw-aGL" secondAttribute="trailing" id="uan-DE-rno"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="guessDisplay" destination="mWh-Aw-aGL" id="FOX-w5-0L5"/>
+                        <outlet property="hangmanState" destination="2P7-C9-hUg" id="aR7-Gr-H80"/>
+                        <outlet property="incorrectGuess" destination="qC6-lq-cZo" id="5nU-tF-i2S"/>
+                        <outlet property="userGuess" destination="dze-fB-tbv" id="At1-wA-hdt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GJo-zA-LYW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="652" y="-133.5832083958021"/>
+            <point key="canvasLocation" x="605.60000000000002" y="-61.619190404797607"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="hangman1" width="200" height="200"/>
+    </resources>
 </document>
